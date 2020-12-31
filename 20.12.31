@@ -1,0 +1,58 @@
+###Matplotlib 
+import matplotlib.pyplot as plt
+
+#색 설정
+plt.plot(df, color='dodgerblue')
+plt.plot([1, 2, 3, 4], [2, 3, 5, 10], color='#e35f62',               #hex code로 색 설정, marker 사이즈 설정, linestyle 설정('--' 얘는 대시)
+         marker='o', linestyle='--')
+plt.plot([1, 2, 3, 4], [2.0, 3.0, 5.0, 10.0], 'b')                   #'b'만 써도 파란색 됨
+
+#타이틀과 라벨 달기
+plt.title('Title')
+plt.xlabel('X-Axis')
+plt.ylabel('Y-Axis')
+
+plt.show()                                                           #%matplotlib inline 를 써주면 일일이 plt.show() 안해도 그림 나옴(inline인지 꼭 확인! notebook일 때 출력 안 됐음)
+
+#그래프 사이즈 설정
+plt.figure(figsize=(8, 8), dpi=80)
+
+#Bar chart
+plt.bar(x, values)                                                    #values: y축에 표시될 값
+plt.bar(x = 'x축 column', height = 'y축에 들어갈 column', width=0.6, 
+        align='edge', color='forestgreen',                            #x: x축에 들어갈 값, log=True: 로그스케일로 표현
+        edgecolor="gray", linewidth=3, tick_label=years, log=True);
+plt.xticks(x, years)                                                  #years 쓰면 x축에 연도가 표시됨(ex)데이터에 있는 2018,2019,2020)
+
+#Scatter chart
+plt.scatter(x = 'speeding', y = 'alcohol', cmap = 'Spectral', data = df); #cmap: 컬러맵, alpha: 투명도
+
+
+#참고
+fig, ax = plt.subplots()                                              #subplots() 함수를 호출하면 figure (fig)과 subplot (ax) 객체를 생성해서 튜플의 형태로 반환
+plt.show()                                                            
+
+###Seaborn
+
+
+#Indexing
+#이건 자꾸자꾸 틀린다. 자료형 오류도 많이 나고 
+
+###Add new columns
+#리스트로 바로 추가하기
+df['새로운 column이름'] = ['a', 'ad', 'c', 'd']                       #이 때 기존 df와 행의 개수가 같아야 함
+
+#Dictionary로 추가하기                                                #map을 이용함
+
+import pandas as pd
+df = {'num': [111, 112, 112, 113, 113, 113, 114], 
+        'Lang': ['en','en','es','es','ja','zj','es']}                 #이 상태는 dict이며 df로 변환해야 테이블 형태로 나오며 아래 dict와 합칠 수 있음
+                                                                      #dict는 .dtypes 커맨드를 쓸 수 없음
+df = pd.DataFrame(df)                                                 #df = pd.DataFrame(df)로 변환하기 
+df                                                                    #변환하지 않으면 dict 상태이며 아래 리스트와 합칠 수 없음  list' object has no attribute 'map'
+
+d = {112: 'en', 113: 'es', 114: 'es', 111: 'en'}                      #mapping으로 어떤 column(여기선 'num')을 참조할지 적어주면 됨
+df['D'] = df['num'].map(d)
+df
+
+#Column 순서 바꾸기, 이름 바꾸기
