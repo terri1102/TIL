@@ -1,4 +1,4 @@
-### Data manipulating
+# Data manipulating
 
 ### 1. concat
 df = pd.concat([df1, df2, df3, df4, df5, df6], axis = 0)                #axis = 0 : 행에 붙이기 axis =1 : 열에 붙이기
@@ -19,19 +19,24 @@ df.merge(df2, how = 'inner', on = '종목')                              #df뒤�
 condition = (df['순이익률'] > 0) # Type Cast
 df_subset = df[condition]
 
+### &와 | 이용해 여러 조건 설정 가능
+condition = ( (df['순이익률'] > 0) & (df['순이익률'] < 10))
+
 ### filter
+df.filter(items=['one', 'three'])                                      #'one','three' column만 나타남
+df.filter(like='bbi', axis=0)                                          # 행(axis=0)에서 'bbi' 글자가 들어간 행을 출력 
 
-
+### groupby: 서로 같은 값을 갖는 행끼리 묶어줌
+df_subset.groupby('테마').순이익률.mean()                              #이때 df.groupby('column').다른column.mean()->다른 column이름에 () 들어가면 오류남
 
 ### tidy
 
-### Wide to tidy
-
+### Wide to tidy: melt
+tidy1 = table1.melt(id_vars = 'index', value_vars = ['A', 'B'])         #id_vars: 
+tidy1
 
 
 ### tidy to wide
-
-
 
 
 ### Pipe and Chaining
