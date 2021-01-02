@@ -1,0 +1,31 @@
+### Data manipulating
+
+### 1. concat
+df = pd.concat([df1, df2, df3, df4, df5, df6], axis = 0)                #axis = 0 : 행에 붙이기 axis =1 : 열에 붙이기
+
+#### .reset_index() : index를 리셋해서 column 기준으로 합칠 수 있게 해줌
+df = pd.concat([df.reset_index(), df2['종목'].head(6)], axis = 1)      #df2['종목'].head(6): df2의 '종목' column의 위에서 6줄
+
+### 2. merge
+df.merge(df2, how = 'inner', on = '종목')                              #df뒤에 df2를 붙임
+'inner' : 공통 key를 기준으로 합침
+'left': 왼쪽 df만의 key를 사용함, key order 불변.
+'right': 오른쪽 df만의 key를 사용함, key order 불변.
+'outer': 모든 df의 key를 사용, key를 사전순으로 배열
+'cross': 모든 df에서 데카르트 좌표계( cartesian product)를 만듦. 왼쪽 df의 key order 유지
+
+### Conditioning...
+
+
+### tidy
+
+### Wide to tidy
+
+
+
+### tidy to wide
+
+
+
+
+### Pipe and Chaining
