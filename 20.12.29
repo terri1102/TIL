@@ -1,0 +1,54 @@
+### Feature Engineering
+df: row-observation column-feature
+tidy: one row, one feature
+
+## 자료 형태(object, float, integer, string)
+.dtypes: 자료 형태
+Nan ->float타입
+* Object to str : df2=d2_t.astype(float)
+
+#시리즈 형태일 때 split,join 모두 매소드 앞에 str 붙이기 rp = column.str.join(str) 
+#값이 float일 땐 split, join 없이 바로 mean 구할 수 있음
+
+String
+
+# 숫자들에서 쉼표 제거하기: replace
+testString = testString.replace(',', '')                          #str이 아닌 int엔 replace 쓸 수 없음
+# 숫자들에서 쉼표 제거하고 object-> float로 만들기
+def tofloat(string):
+  return float(string.replace(',', ''))
+
+# 숫자들에서 쉼표 제거 : split, join 
+rev = df.loc[0,'매출액']
+rev = rev.split(sep=',')                                          #리스트로 잘라짐                                             
+a = ''.join(rev)                                                  #join 함수 형태가 특이
+
+a = int(a)
+print(a)
+
+## apply함수
+def 함수()
+df['column'] = df['column'].apply(함수)
+
+### Indexing
+## 새로운 column 만들기
+1.기존 column들 합쳐서 새로운 feature 만들기 
+df['new column'] = df['previous column1'] +  df['previouw column2']
+
+2. column 삭제
+df1 = df.drop(['삭제할 column'], axis = 1)                         #axis = 0 행 따라, aix = 1 열 따라 동작
+
+3. column 안에 일부 row 선택
+data = df.loc[0:3,'column']                                        #'column' 열 안에 0~3 자리 열
+
+
+
+### 결측치 nan으로 채움
+import numpy as np
+df.loc[2,'당기순이익(비지배)']= np.nan
+
+### 분석
+df.describe()
+
+### 소숫점 자리 설정
+df.round(2)
