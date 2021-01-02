@@ -42,7 +42,11 @@ df1 = df.drop(['삭제할 column'], axis = 1)                         #axis = 0 
 3. column 안에 일부 row 선택
 data = df.loc[0:3,'column']                                        #'column' 열 안에 0~3 자리 열
 
-
+4. column 이름 변경: .rename(columns ={'기존 column':' 새 column명'})
+tidy1 = tidy1.rename(
+   columns = {
+        'variable': 'Feature', 
+        'value': 'Value'})
 
 ### 결측치 nan으로 채움
 import numpy as np
