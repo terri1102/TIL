@@ -10,7 +10,8 @@ Nan ->float타입
 #시리즈 형태일 때 split,join 모두 매소드 앞에 str 붙이기 rp = column.str.join(str) 
 #값이 float일 땐 split, join 없이 바로 mean 구할 수 있음
 
-String
+#Type cast
+df['숫자만 있는 column'] = pd.to_numeric(df['숫자만 있는 column'])  #value에 숫자 아닌 문자 있으면 안 됨
 
 # 숫자들에서 쉼표 제거하기: replace
 testString = testString.replace(',', '')                          #str이 아닌 int엔 replace 쓸 수 없음
