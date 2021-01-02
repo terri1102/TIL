@@ -1,14 +1,14 @@
 EDA (Exploratory Data Analysis)
 
-###데이터셋 불러오기
-#데이터 행, 열 확인하고, 결측치 있는지, 첫 행이 column header는 아닌지 등 확인
+### 데이터셋 불러오기
+# 데이터 행, 열 확인하고, 결측치 있는지, 첫 행이 column header는 아닌지 등 확인
 
-#1. URL
+# 1. URL
 data_url = 'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/car_crashes.csv'
 df = pd.read_csv(data_url, error_bad_lines=False) #error_bad_lines=False: 오류나는 데이터는 불러오지 않음
 df.head
 
-#2. 로컬 파일
+# 2. 로컬 파일
 from google.colab import files
 uploaded = files.upload()
 
@@ -28,11 +28,14 @@ def clean(file_name):
   
 ###결측치 처리
 결측치를 어떻게 처리할 것인지 고민해보기
-1. 결측치를 0으로 채움:  df_0 = df.fillna(0)
-isna
-isnull
+
+1. 결측치 찾기: 
+.isna() ser = pd.Series([5, 6, np.NaN])                                 #NA values: such as None or numpy.NaN <->''empty string or numpy.inf는 na 아님
+        ser.isna()                                                       #Return a boolean same-sized object
+.isnull                                                                  #R에선 na와 null이 다르지만 pandas는 numpy기반이어서 둘을 같이 취급 <-> Nan
 notna
 notnull
+1. 결측치를 0으로 채움:  df_0 = df.fillna(0)
 dropna
 
 ###matplotlib 한글 폰트 오류 고치기
