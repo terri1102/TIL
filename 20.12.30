@@ -15,6 +15,12 @@ df.merge(df2, how = 'inner', on = '종목')                              #df뒤�
 'cross': 모든 df에서 데카르트 좌표계( cartesian product)를 만듦. 왼쪽 df의 key order 유지
 
 ### Conditioning...
+# 필터링 조건 (Condition) 설정
+condition = (df['순이익률'] > 0) # Type Cast
+df_subset = df[condition]
+
+### filter
+
 
 
 ### tidy
