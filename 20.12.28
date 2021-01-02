@@ -1,0 +1,50 @@
+EDA (Exploratory Data Analysis)
+
+###데이터셋 불러오기
+#데이터 행, 열 확인하고, 결측치 있는지, 첫 행이 column header는 아닌지 등 확인
+
+#1. URL
+data_url = 'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/car_crashes.csv'
+df = pd.read_csv(data_url, error_bad_lines=False) #error_bad_lines=False: 오류나는 데이터는 불러오지 않음
+df.head
+
+#2. 로컬 파일
+from google.colab import files
+uploaded = files.upload()
+
+##로컬에서 업로드한 파일 지우기                                                     #아래 코드에서 오류나면 자꾸 파일이 오염되어서 파일 지울 때 필요
+!rm file_name.xlsx 
+
+##xlsx 파일을 csv로 바꾸기
+df.to_csv(file_name, encoding='utf-8')
+
+##Transpose하고 첫번째 row를 column_header로 정하기 
+def clean(file_name):
+  df = pd.read_csv(Url_head + file_name).transpose()                                #.transpose() 대신 .T 써도 됨
+  column_head = df.iloc[0]
+  df = df[1:]
+  df.columns = column_head
+  return df                                                                         #마지막 row만 return하고 싶으면 df[-1:]
+  
+###결측치 처리
+결측치를 어떻게 처리할 것인지 고민해보기
+1. 결측치를 0으로 채움:  df_0 = df.fillna(0)
+isna
+isnull
+notna
+notnull
+dropna
+
+###matplotlib 한글 폰트 오류 고치기
+!sudo apt-get install -y fonts-nanum
+!sudo fc-cache -fv
+!rm ~/.cache/matplotlib -rf
+
+import matplotlib.pyplot as plt
+plt.rc('font', family='NanumBarunGothic') 
+
+###df.plot 으로 그래프 그리기
+df.plot.scatter('x축이 될 column', 'y축이 될 column');                      
+df['x축이 될 column'].plot.bar();
+df['x축이 될 column'].plot.barh();
+df['x축이 될 column'].plot.hist(); 
