@@ -20,24 +20,29 @@ df.to_csv(file_name, encoding='utf-8')
 
 ##Transpose하고 첫번째 row를 column_header로 정하기 
 def clean(file_name):
-  df = pd.read_csv(Url_head + file_name).transpose()                                #.transpose() 대신 .T 써도 됨
+  df = pd.read_csv(Url_head + file_name).transpose()                           #.transpose() 대신 .T 써도 됨
   column_head = df.iloc[0]
   df = df[1:]
   df.columns = column_head
-  return df                                                                         #마지막 row만 return하고 싶으면 df[-1:]
+  return df                                                                    #마지막 row만 return하고 싶으면 df[-1:]
   
 ###결측치 처리
 결측치를 어떻게 처리할 것인지 고민해보기
 
 1. 결측치 찾기: 
-.isna() ser = pd.Series([5, 6, np.NaN])                                 #NA values: such as None or numpy.NaN <->''empty string or numpy.inf는 na 아님
-        ser.isna()                                                       #Return a boolean same-sized object
-.isnull                                                                  #R에선 na와 null이 다르지만 pandas는 numpy기반이어서 둘을 같이 취급 <-> Nan
-notna
-notnull
-1. 결측치를 0으로 채움:  df_0 = df.fillna(0)
-dropna
-
+.isna() ex) ser = pd.Series([5, 6, np.NaN])                                    #NA values: such as None or numpy.NaN <->''empty string or numpy.inf는 na 아님
+            ser.isna()                                                         #Return a boolean same-sized object
+.isnull()                                                                      #R에선 na와 null이 다르지만 pandas는 numpy기반이어서 둘을 같이 취급 <-> Nan
+2. 결측치 아닌 것 찾기:
+.notna() ex) df.notna()
+.notnull()
+3. 결측치를 0으로 채움:  df_0 = df.fillna(0)
+4. 결측치 지우기: Remove missing values.
+.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)            #axis = 0 이나 'index':결측치 있는 행 지움 /1이나 'column': 결측치 있는 열지움       
+                                                                               #any: 결측치 하나라도 있으면 지움 all 모든 자료가 결측치일 때 지움
+                                                                               #thresh = 2: 결측치가 2개 이상일 때 지움
+                                                                               #df.dropna(subset=['name', 'toy']): 'name','toy'열에서 결측치 찾음, 나머지 열은 무시
+                                                                               #inplace=True: 결측치 지운 값을 df로 설정.
 ###matplotlib 한글 폰트 오류 고치기
 !sudo apt-get install -y fonts-nanum
 !sudo fc-cache -fv
