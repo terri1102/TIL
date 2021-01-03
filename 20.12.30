@@ -22,6 +22,13 @@ df_subset = df[condition]
 ### &와 | 이용해 여러 조건 설정 가능
 condition = ( (df['순이익률'] > 0) & (df['순이익률'] < 10))
 
+df1 = pd.DataFrame({'a': ['123', '2334', '234', '3445', '545'],
+                    'b': ['도레미', '파솔라', '시', '도레미', '레']})
+condition1 = ((df1['b'] == '도레미') | (df1['b'] == '파솔라'))         #1.컨디션 설정 2.subset=df[condition]
+df_subset1 = df1[condition1]
+df_subset1['종류'] = '음계'
+df_subset1
+
 ### filter
 df.filter(items=['one', 'three'])                                      #'one','three' column만 나타남
 df.filter(like='bbi', axis=0)                                          # 행(axis=0)에서 'bbi' 글자가 들어간 행을 출력 
