@@ -12,12 +12,14 @@ df.head
 from google.colab import files
 uploaded = files.upload()
 
-##로컬에서 업로드한 파일 지우기                                                     #아래 코드에서 오류나면 자꾸 파일이 오염되어서 파일 지울 때 필요
+##로컬에서 업로드한 파일 지우기                                                 #아래 코드에서 오류나면 자꾸 파일이 오염되어서 파일 지울 때 필요
 !rm file_name.xlsx 
 
 ##xlsx 파일을 sheet별로 불러오기
 df = pd.read_excel(file_url, sheet_name= ['008770 ', '035250'])
-  
+df = pd.read_excel('users.xlsx', sheet_name = [0,1,2])
+df = pd.read_excel('users.xlsx', sheet_name = None)                            # read all sheets
+
 ##xlsx 파일을 csv로 바꾸기
 df.to_csv(file_name, encoding='utf-8')
 
