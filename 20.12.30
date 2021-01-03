@@ -44,6 +44,10 @@ tidy1
 
 
 ### tidy to wide
+wide = tidy1.pivot_table(index = 'row', columns = 'column', values = 'value')
+wide                                                                    # index: unique identifier
+                                                                        # columns: "wide" 데이터에서 column별로 다르게 하고자 하는 값.
+                                                                        # values: 결과값이 들어가는 곳 (wide 데이터프레임의 내용에 들어갈 값)
 
 
 ### Pipe and Chaining
