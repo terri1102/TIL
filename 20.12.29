@@ -43,10 +43,16 @@ df1 = df.drop(['삭제할 column'], axis = 1)                         #axis = 0 
 data = df.loc[0:3,'column']                                        #'column' 열 안에 0~3 자리 열
 
 4. column 이름 변경: .rename(columns ={'기존 column':' 새 column명'})
-tidy1 = tidy1.rename(
+tidy1 = tidy1.rename(                                              
    columns = {
         'variable': 'Feature', 
         'value': 'Value'})
+
+5. column 순서 변경
+columnsTitles = ['abbrev', 'speeding', 'alcohol',	'not_distracted',	'no_previous',	'ins_premium',	'ins_losses', 'total']
+df = df.reindex(columns=columnsTitles)
+
+df.columns = ['a','b','c']                                         # column 순서가 'a', 'b', 'c' 순서로 변경 
 
 ### 결측치 nan으로 채움
 import numpy as np
