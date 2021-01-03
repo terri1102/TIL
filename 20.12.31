@@ -33,7 +33,8 @@ fig, ax = plt.subplots()                                              #subplots(
 plt.show()                                                            
 
 ###Seaborn
-
+import seaborn as sns
+sns.catplot(x = 'row', y = 'value', col = 'column', kind = 'bar', data = tidy1, height = 2);
 
 #Indexing
 #이건 자꾸자꾸 틀린다. 자료형 오류도 많이 나고 
