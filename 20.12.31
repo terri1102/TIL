@@ -60,6 +60,13 @@ g.set(xlabel='alcohol', ylabel='total car crash')
 penguins = sns.load_dataset("penguins")
 sns.histplot(data=penguins, x="flipper_length_mm", hue="species", multiple="stack")
 
+### ggplot2
+ggplot은 R의 시각화 패키지 함수 그대로 사용가능
+
+### plotly 반응형 차트
+import plotly.express as px
+px.scatter(df_t, x = 'alcohol', y = 'total', color = 'states')
+
 #Indexing
 #이건 자꾸자꾸 틀린다. 자료형 오류도 많이 나고 
 
