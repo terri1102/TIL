@@ -2,6 +2,7 @@
 
 ### 1. concat
 df = pd.concat([df1, df2, df3, df4, df5, df6], axis = 0)                #axis = 0 : 행에 붙이기 axis =1 : 열에 붙이기
+result = pd.concat(pieces, keys=["z", "y"])                             # concat하면서 column이름을 key값으로 
 
 ### append : concat 보다 먼저 만들어진 함수
 result = df1.append([df2, df3])
