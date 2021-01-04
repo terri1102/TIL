@@ -12,7 +12,11 @@ grouped = df.groupby('country')
 avr_ppp = pd.DataFrame(grouped.mean()['PPP'])
 avr_ppp
 
-#인덱스 지우기 
+#인덱스 가리기
+from IPython.display import HTML                                                    #html 이용
+HTML(df_subset.to_html(index=False))
+
+df.style.hide_index()                                                               #표 모양없이 나옴
 
 4.번 groupby함수 오류
 df.groupby('country').PPP.means()
