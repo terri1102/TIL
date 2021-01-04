@@ -36,12 +36,25 @@ plt.show()
 import seaborn as sns
 sns.catplot(x = 'row', y = 'value', col = 'column', kind = 'bar', data = tidy1, height = 2);
 
-## line plot
+### line plot
 sns.lineplot(x = 'date', y = 'value', hue= 'variable', data = tidy1);
 plt.xlabel("x", fontsize= 20) 
 plt.ylabel("variable", fontsize = 20)
 plt.title("title", fontsize=30);
 plt.legend()
+
+### Facet
+g = sns.FacetGrid(data = df_t, col = 'region1')
+sns.color_palette("tab10")
+g.map_dataframe(
+    sns.scatterplot,
+    x = 'x',
+    y = 'y',
+     hue = '비교군',
+    
+    data = df_t
+)
+g.set(xlabel='alcohol', ylabel='total car crash')
 
 #Indexing
 #이건 자꾸자꾸 틀린다. 자료형 오류도 많이 나고 
