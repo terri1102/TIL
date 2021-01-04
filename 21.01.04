@@ -4,9 +4,8 @@
 https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html                #읽어봤는데도 모르겠음...
 
 import pandas as pd
-from functools import reduce
-
-data_frames = [df1, df2, df3]
+from functools import reduce                                                        #reduce 쓰려면 functools 불러와야함
+data_frames = [df1, df2, df3]                                                       #df1, df2, df3을 머지하는데  
 df_j = reduce(lambda left, right: pd.merge(left,right, on = ['geo', 'time'], how = 'outer'), data_frames)
 
 
