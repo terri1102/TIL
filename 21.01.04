@@ -1,9 +1,12 @@
 해결해야 할 오류들
 
 #merge 이용해서 여러 df 합치기
-2번 다시 해볼 거
+
 geo, time에 대해 merge inner
+
+import pandas as pd
 from functools import reduce
+
 data_frames = [df1, df2, df3]
 df_j = reduce(lambda left, right: pd.merge(left,right, on = ['geo', 'time'], how = 'outer'), data_frames)
 
