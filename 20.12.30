@@ -43,9 +43,10 @@ df_subset.groupby('테마').순이익률.mean()                              #�
 ### tidy
 
 ### Wide to tidy: melt
-tidy1 = table1.melt(id_vars = 'index', value_vars = ['A', 'B'])         #id_vars: 
-tidy1
+table1 = dfd.reset_index()                                             # 만약 id_vars로 쓸 column이 index에 가있다면 column으로 보내줘야 하기 떄문에
 
+tidy1 = table1.melt(id_vars = 'index', value_vars = ['A', 'B'])         #id_vars: Column(s) to use as identifier variables. value_vars: columns to unpivot
+tidy1
 
 ### tidy to wide
 wide = tidy1.pivot_table(index = 'row', columns = 'column', values = 'value')
