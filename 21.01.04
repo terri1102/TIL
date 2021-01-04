@@ -1,2 +1,42 @@
 해결해야 할 오류들
 
+#merge 이용해서 여러 df 합치기
+2번 다시 해볼 거
+geo, time에 대해 merge inner
+from functools import reduce
+data_frames = [df1, df2, df3]
+df_j = reduce(lambda left, right: pd.merge(left,right, on = ['geo', 'time'], how = 'outer'), data_frames)
+
+내가 쓴 방법
+grouped = df.groupby('country')
+avr_ppp = pd.DataFrame(grouped.mean()['PPP'])
+avr_ppp
+
+#인덱스 지우기 
+
+4.번 groupby함수 오류
+df.groupby('country').PPP.means()
+
+#groupby 오류 관련 series와 dataframe 차이 알아보기
+What is the difference between a pandas Series and a single-column DataFrame?
+Series: is the data structure for a single column of a DataFrame
+the data in a DataFrame is actually stored in memory as a collection of Series
+series는 df의 한 개 column에 있는 데이터, df은 dict-like container for Series objects
+df은 기본적으로 column이 여러 개 일거라 가정.
+series에 series를 더하면 df됨
+
+******************************subset 만들 때 [[]] 두개 들어가는거!***************************************
+
+
+#sort
+df.sort_values(by=['column'], axis=0).tail(10)                                       #df의 column에서 작은 수부터 정렬 (큰 수부터 일 때는 ascending=False), tail(10): 아래 열 10개
+
+#주어진 fivethirtyeight 그림 차트와 완벽히 동일하게 그려보세요.
+subset2
+plt.figure(figsize=(16, 10))
+sns.lineplot(x = 'time', y = 'cell_phones_total', hue= 'geo', data = subset2);
+plt.xlabel("Time", fontsize= 20) 
+plt.ylabel("Cell Phones Total", fontsize = 20)
+plt.title("Cell phones total of USA and China ", fontsize=30);
+plt.legend();
+
