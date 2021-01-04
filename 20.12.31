@@ -56,6 +56,10 @@ g.map_dataframe(
 )
 g.set(xlabel='alcohol', ylabel='total car crash')
 
+### histogram-multiple stack
+penguins = sns.load_dataset("penguins")
+sns.histplot(data=penguins, x="flipper_length_mm", hue="species", multiple="stack")
+
 #Indexing
 #이건 자꾸자꾸 틀린다. 자료형 오류도 많이 나고 
 
