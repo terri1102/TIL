@@ -1,8 +1,7 @@
 해결해야 할 오류들
 
-#merge 이용해서 여러 df 합치기
-
-geo, time에 대해 merge inner
+1. merge 이용해서 여러 df 합치기
+https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html                #읽어봤는데도 모르겠음...
 
 import pandas as pd
 from functools import reduce
@@ -10,22 +9,32 @@ from functools import reduce
 data_frames = [df1, df2, df3]
 df_j = reduce(lambda left, right: pd.merge(left,right, on = ['geo', 'time'], how = 'outer'), data_frames)
 
-내가 쓴 방법
-grouped = df.groupby('country')
-avr_ppp = pd.DataFrame(grouped.mean()['PPP'])
-avr_ppp
 
-#인덱스 가리기
-from IPython.display import HTML                                                    #html 이용
+2. 인덱스 가리기
+from IPython.display import HTML                                                    #html 이용, 예시 표처럼 깔끔하게 나옴
 HTML(df_subset.to_html(index=False))
 
 df.style.hide_index()                                                               #표 모양없이 나옴
 
-4.번 groupby함수 오류
+3. 결측치 찾기
+np.sum(pd.isnull(df))                                                               #결측치 개수 알려줌. 데이터가 클 때 .isna() 보다 편리
+
+
+4. groupby함수 오류
+
 df.groupby('country').PPP.means()
+>>>'SeriesGroupBy' object has no attribute 'means'                                   #country column 하나만 선택해서 series로 인식되나봄
+
+해결1?
+grouped = df.groupby('country')                                                      #grouped로 df를 groupby해 놓고 PPP의 평균을 구하면 값 나옴
+avr_ppp = pd.DataFrame(grouped.mean()['PPP'])
+avr_ppp
+
+해결2?                                        
+grouped1 = df['PPP'].groupby(df['country'])                                          #위와 동일하지만 표 모양 안 나옴
+grouped1.mean()
 
 #groupby 오류 관련 series와 dataframe 차이 알아보기
-What is the difference between a pandas Series and a single-column DataFrame?
 Series: is the data structure for a single column of a DataFrame
 the data in a DataFrame is actually stored in memory as a collection of Series
 series는 df의 한 개 column에 있는 데이터, df은 dict-like container for Series objects
