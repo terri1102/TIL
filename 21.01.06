@@ -15,11 +15,15 @@ s.to_numpy()
 # 1.observed data -> 2.expected value -> 3.obs-exp -> 4.(obs-exp)^2 -> 5.(obs-exp)^2/exp
 
 1. One sample chisqaure test
+주어진 데이터가 균등 한 분포를 나타내고 있는지 확인
+
 from scipy.stats import chisquare
 chisquare(array, axis=None)                                #chisquare(f_obs, f_exp=None, ddof= 0) ddof는 입력 안 하면 k - 1으로 계산됨
                                                            #굳이 array로 안 바꾸고 df 넣어도 카이제곱검정 가능 but 리스트는 array로 바꿔줘야함
 
 2. Two sample chisquare test: chi2_contingency             #contingency: 분할표
+: 2개의 데이터가 연관이 있는지를 확인 (Frequency 기반)
+
 from scipy.stats import chi2_contingency
 print(chi2_contingency(table))
 >>#(카이제곱값, pvalue, 자유도, 기댓값)
@@ -60,7 +64,9 @@ history 1     16
 Unstack: b 인덱스를 column name으로 보내서 멀티 column이 됨(멀티 column이 맞는 말인지는 모르겠음 )
 table = df2.unstack(level=-1, fill_value=None)
 table
-a        1      2
+         c
+b        1      2
+a
 art      8      3
 science  34     6
 history  16     13
@@ -68,3 +74,9 @@ history  16     13
 #column이 (b, c) 이런 벡터형태로 나와서 column level를 줄임
 table.columns = table.columns.get_level_values(1)
 table
+b        1      2
+a
+art      8      3
+science  34     6
+history  16     13
+>>정상적인 column으로 작동함
