@@ -65,6 +65,14 @@ df.columns = ['a','b','c']                                         # column 순�
 6. 특정 column 선택해서 데이터 변환
 df.loc[:, ['a', 'b',	'c',	'd']] = df.loc[:, ['a', 'b',	'c',	'd']].round(1) #소숫점 한 자리까지만 보이기
 
+7. 각 column별로 2의 자리에 있는 값 print 
+# creating a list of dataframe columns 
+clmn = list(col) 
+  
+for i in clmn: 
+    # printing a third element of column 
+    print(col[i][2]) 
+
 ### 결측치 nan으로 채움
 import numpy as np
 df.loc[2,'당기순이익(비지배)']= np.nan
