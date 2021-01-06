@@ -32,6 +32,14 @@ def 함수()
 df['column'] = df['column'].apply(함수)
 
 ### Indexing
+print(df.iloc[0])                   #0자리 열을 print
+print(df.iloc[[0, 2]])              #0자리 행, 2자리 행 print        #[[]] 겹괄호 주의
+print(df.iloc[0:2])                 #0~1자리 행 print
+print(df.iloc[:, 0])                #0자리 열 print        
+print(df.iloc[:, [0, 2]])           #0자리와 2자리 열 print          #[[]] 겹괄호 주의
+print(df.iloc[:, 0:2])              #0~1자리 열 print
+
+
 ## 새로운 column 만들기
 1.기존 column들 합쳐서 새로운 feature 만들기 
 df['new column'] = df['previous column1'] +  df['previouw column2']
