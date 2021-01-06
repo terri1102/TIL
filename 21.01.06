@@ -98,4 +98,6 @@ column이름 보기
 for col in data.columns: 
     print(col) 
     
-    
+row mean: axis =1
+df['mean'] = df.mean(axis=1)
+df.drop('Region', axis=1).apply(lambda x: x.mean(), axis=1)   #Region 열은 숫자가 아니어서 빼고 계산
