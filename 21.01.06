@@ -101,3 +101,5 @@ for col in data.columns:
 row mean: axis =1
 df['mean'] = df.mean(axis=1)
 df.drop('Region', axis=1).apply(lambda x: x.mean(), axis=1)   #Region 열은 숫자가 아니어서 빼고 계산
+
+통계학에서, 피어슨 상관 계수란 두 변수 X 와 Y 간의 선형 상관 관계를 계량화한 수치다
