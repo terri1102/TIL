@@ -1,0 +1,11 @@
+git blog에 업데이트 하기
+$ git add --all
+$ git commit -m "updates at HOME"
+# git push -u origin master
+
+git blog 폴더 만들기
+1. index.html 파일 수정
+2. 폴더 이름으로 폴더 만들기
+3. 그 폴더 안에 마크다운 파일 넣기(내용은 layout이랑 title만 써도 됨)
+4. _post 폴더 안에 폴더 만들기
+-------------------현재 문제->어떤 폴더를 누르나 모든 글이 보임 permalink나 yml을 더 알아봐야 할 것 같음
