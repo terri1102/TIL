@@ -1,0 +1,17 @@
+#Array
+-array안의 데이터 세기: len(array)
+-df 안의 null 아닌 데이터 세기: df.count()
+-df 안의 데이터 모양 보기: df.shape()
+-df의 행 개수 세기: df.shape[0]
+-series의 행 개수 세기: s.size
+-numpy에서 특정 숫자 포함한 데이터 개수 세기: 
+1번 a = numpy.array([0, 3, 0, 1, 0, 1, 2, 1, 0, 0, 0, 0, 1, 3, 4])
+unique, counts = numpy.unique(a, return_counts=True)
+dict(zip(unique, counts))
+{0: 7, 1: 4, 2: 1, 3: 2, 4: 1}
+
+2번 import collections, numpy
+a = numpy.array([0, 3, 0, 1, 0, 1, 2, 1, 0, 0, 0, 0, 1, 3, 4])
+collections.Counter(a)
+
+Counter({0: 7, 1: 4, 3: 2, 2: 1, 4: 1})
