@@ -72,6 +72,9 @@ clmn = list(col)
 for i in clmn: 
     # printing a third element of column 
     print(col[i][2]) 
+    
+8. index 선택
+df.index[i]
 
 ### 결측치 nan으로 채움
 import numpy as np
