@@ -32,3 +32,5 @@ df = pd.read_csv('파일주소', sep = '\t', skiprows = 1).replace('-','0')     
 #df=df.replace('-', 0)                                                            
 df =df.drop(index=[0,26,27])
 df                                                                                #replace 쓸 때 '0'으로 바꾸냐 0으로 바꾸냐의 문제였음
+
+오늘의 takeaway: 데이터 형을 계속 신경쓰자. 일부 column만 함부로 바꾸지 말자.
