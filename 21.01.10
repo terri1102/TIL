@@ -1,0 +1,34 @@
+numpy 정리
+
+#시드 설정
+np.random.seed(1111)        
+
+# 난수 생성
+1. np.random.randit(low, high, size) #랜덤하게 1ow에서 high까지 size만큼 정수 뽑기
+v = np.random.randint(0, 100, 20) #0-100까지 20개
+>>>array로 나옴
+
+2. np.arange([start, ]stop, [step, ]dtype=None) #start부터 stop까지 step 간격의 숫자들로 array만들기
+np.arange(0, 50, 1).mean() #0에서 50까지 수들을 1의 간격으로 뽑은 것의 평균
+
+3. 이항분포 np.random.binomial(n, p, size) # n번의 베르누이 시행 중 사건의 발생확률 P인 10개의 수
+df = pd.DataFrame({'coinflips': np.random.binomial(n = 1, p = 0.5, size = 10)}) #한 번 던졌을 때 0이나 1이 나올 확률이 각각 50%인 시행 10번 함 #binominal: 1,0만 나옴
+
+#array를 df으로 만들어서 기술통계 보기
+pd.DataFrame(v).describe()
+
+#for loop로 일부 column의 값만 변경하기->이 컬럼이 삭제되는 건 아님, 그냥 무시하는듯
+for i in df.columns.drop(['무시할 column1, 무시할 column2]):
+    df[i] = pd.to_numeric(df[i].str.replace(',',''))
+    
+
+************# comma가 안 지워지고 nan으로 바뀌던 문제 해결함...*****************
+1. 문제 원인: df.dtypes해도 object이라고 나왔지만 replace('-', 0)으로 바꾼 column들은 이미 float로 바뀌어 있음. 
+따라서 일률적으로 str.replace(',','')를 통해 ','를 없애려 했을 때 float을 포함한 column들은 Nan으로 바뀌게 됨->float에 replace 쓰면 Nan됨
+2. 해결: replace('-','0') 숫자 0이 아닌 str '0'으로 replace하자!!!!!!!!
+3. 번외: pd.read_csv('filename', thousands = ',')에서 thousands은 결측치 하나라도 있는 column엔 적용 안 됨
+
+df = pd.read_csv('파일주소', sep = '\t', skiprows = 1).replace('-','0')           #thousands로 , 안 없어지는 column은 중간에 -값이 있어서 그럼
+#df=df.replace('-', 0)                                                            
+df =df.drop(index=[0,26,27])
+df                                                                                #replace 쓸 때 '0'으로 바꾸냐 0으로 바꾸냐의 문제였음
