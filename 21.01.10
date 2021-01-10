@@ -14,6 +14,11 @@ np.arange(0, 50, 1).mean() #0에서 50까지 수들을 1의 간격으로 뽑은 
 3. 이항분포 np.random.binomial(n, p, size) # n번의 베르누이 시행 중 사건의 발생확률 P인 10개의 수
 df = pd.DataFrame({'coinflips': np.random.binomial(n = 1, p = 0.5, size = 10)}) #한 번 던졌을 때 0이나 1이 나올 확률이 각각 50%인 시행 10번 함 #binominal: 1,0만 나옴
 
+#sampling
+1. np.random.choice(a, size=None, replace=True, p=None) #replace= True: 복원 , False: 비복원
+만약 1에서 100까지 20개 뽑는다면 np.random.choice(100,20)
+
+
 #array를 df으로 만들어서 기술통계 보기
 pd.DataFrame(v).describe()
 
