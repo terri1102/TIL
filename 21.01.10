@@ -25,7 +25,11 @@ for i in df.columns.drop(['무시할 column1, 무시할 column2]):
 ************# comma가 안 지워지고 nan으로 바뀌던 문제 해결함...*****************
 1. 문제 원인: df.dtypes해도 object이라고 나왔지만 replace('-', 0)으로 바꾼 column들은 이미 float로 바뀌어 있음. 
 따라서 일률적으로 str.replace(',','')를 통해 ','를 없애려 했을 때 float을 포함한 column들은 Nan으로 바뀌게 됨->float에 replace 쓰면 Nan됨
+
 2. 해결: replace('-','0') 숫자 0이 아닌 str '0'으로 replace하자!!!!!!!!
+        만약 이미 일부 column의 데이터 형태가 str이 아니라면 
+        # data_frame['column_name'] = data_frame['column_name'].astype(str)로 바꾸고 replace
+        
 3. 번외: pd.read_csv('filename', thousands = ',')에서 thousands은 결측치 하나라도 있는 column엔 적용 안 됨
 
 df = pd.read_csv('파일주소', sep = '\t', skiprows = 1).replace('-','0')           #thousands로 , 안 없어지는 column은 중간에 -값이 있어서 그럼
