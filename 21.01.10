@@ -23,7 +23,7 @@ for i in df.columns.drop(['무시할 column1, 무시할 column2]):
     
 
 ************# comma가 안 지워지고 nan으로 바뀌던 문제 해결함...*****************
-1. 문제 원인: df.dtypes해도 object이라고 나왔지만 replace('-', 0)으로 바꾼 column들은 이미 float로 바뀌어 있음. 
+1. 문제 원인: df.dtypes해도 object이라고 나왔지만 replace('-', 0)으로 바꾼 column들은 이미 float로 바뀌어 있음. 근데 dtypes로 보면 object라고 뜸
 따라서 일률적으로 str.replace(',','')를 통해 ','를 없애려 했을 때 float을 포함한 column들은 Nan으로 바뀌게 됨->float에 replace 쓰면 Nan됨
 
 2. 해결: replace('-','0') 숫자 0이 아닌 str '0'으로 replace하자!!!!!!!!
