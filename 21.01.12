@@ -14,8 +14,29 @@ a = np.array([8, 12])
 b = np.array([9,19])
  >>>a,b는 (1x2) array
  
+#행렬 연산시 array[[]] 괄호 두 개!
+f = np.array([[13,-4,19]])           #[]한 개만 쓰면 shape은 (3,)나옴->matmul 연산 안 됨, 두 개 쓰면 (1,3)
+
+#행렬의 길이 구하기
+np.linalg.norm(g)
+
+#행렬의 det 구하기
+np.linalg.det(array)
+
+#Indexing array
+array[a,b]
+
 
 #arrow plot
 matplotlib.pyplot.arrow(x, y, dx, dy, **kwargs)
 plt.xlim( 0, 10)                                #좌표공간 크기           
 plt.ylim(0, 20)
+plt.legend([arr1, arr2, arr3, arr4], ['a','five','pi','e']) #각 변수마다 직접 label 붙임
+
+MSE- mean squared error(평균 제곱 오차) </br>
+잔차(오차)의 제곱에 대한 평균을 취한 값  
+MSE = E [ (X - X^)2] = $\frac{1}{N}\Sigma(X-\hat{X})^2$
+
+MAE - mean absolute error(평균절대오차) </br>
+모든 절대오차의 평균
+MAE = $\frac{1}{N}\Sigma(|X-\hat{X}|)$
