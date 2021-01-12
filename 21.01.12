@@ -23,6 +23,9 @@ np.linalg.norm(g)
 #행렬의 det 구하기
 np.linalg.det(array)
 
+#역행렬 구하기
+np.linalg.inv(array)
+
 #Indexing array
 array[a,b]
 
