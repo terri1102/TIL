@@ -54,3 +54,24 @@ MSE = E [ (X - X^)2] = $\frac{1}{N}\Sigma(X-\hat{X})^2$
 MAE - mean absolute error(평균절대오차) </br>
 모든 절대오차의 평균
 MAE = $\frac{1}{N}\Sigma(|X-\hat{X}|)$
+
+-----
+Word2Vac 소개
+Word2Vec은 자연어 처리 기술이다.(인코딩을 통해 텍스트를 숫자로 바꿔줌)
+
+-One hot encoding과의 차이
+One hot encoding은 단어 개수만큼의 차원 가지는 단어당 독립적인 벡터 만들어준다.
+단점은 단어 간 관계 표현 불가능하며 단어간 거리 동일하게 나타난다. (cosine simility 다 동일하게 나오는 듯)
+
+-Embedding:
+단어 벡터끼리 유사도 구할 수 있고, one hot encoding보다 저차원인 벡터 표현, similarity 표현 가능
+
+Word2Vec은 word embedding기법 중 하나이다.
+
+-skipgram 방법
+word - neighbor 
+input - hidden(linear neuron) - output(softmax)-target
+input과 output은 같은 개수의 node 가짐
+hidden layer값은 embedding
+
+backpropagrate 
