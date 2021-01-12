@@ -35,10 +35,15 @@ np.dot(array1, array2)
 #Indexing array
 array[a,b]
 
+#단위행렬
+np.identity(n) #nxn 단위행렬 #근데 component뒤에 . 이 붙음
+
+#대각선 행렬?
+np.eye(n,k) #nxn 행렬을 만들고 k=0(default)일 땐 단위 행렬, k=1일 땐 1이 오른쪽 대각선으로 한 칸 올라감, k=-1일 땐 왼쪽
 
 #arrow plot
 matplotlib.pyplot.arrow(x, y, dx, dy, **kwargs)
-plt.xlim( 0, 10)                                #좌표공간 크기           
+plt.xlim( 0, 10)                                #좌표공간 크기  #tuple 오류 나면 런타임 다시 시작         
 plt.ylim(0, 20)
 plt.legend([arr1, arr2, arr3, arr4], ['a','five','pi','e']) #각 변수마다 직접 label 붙임
 
