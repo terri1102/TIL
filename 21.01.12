@@ -1,0 +1,21 @@
+#Array와 df의 형태
+
+#df
+a = pd.DataFrame([[8],
+               [12]])                          #arrow plot 그리려면 df 아닌 array여야 함
+b = pd.DataFrame([[9],[19]])                   #pd.array는 1차원만 가능, np.array는 다차원 가능
+
+#array 
+a = np.array([[8],                              #plt.arrow는 nx2 array만 가능
+              [12]])
+b = np.array([[9], [19]])
+ >>>a, b는 (2x1) array
+a = np.array([8, 12])
+b = np.array([9,19])
+ >>>a,b는 (1x2) array
+ 
+
+#arrow plot
+matplotlib.pyplot.arrow(x, y, dx, dy, **kwargs)
+plt.xlim( 0, 10)                                #좌표공간 크기           
+plt.ylim(0, 20)
