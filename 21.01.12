@@ -26,6 +26,12 @@ np.linalg.det(array)
 #역행렬 구하기
 np.linalg.inv(array)
 
+#행렬 곱
+np.matmul(array1, array2)
+
+#벡터의 내적
+np.dot(array1, array2)
+
 #Indexing array
 array[a,b]
 
