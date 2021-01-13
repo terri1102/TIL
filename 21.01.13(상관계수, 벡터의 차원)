@@ -1,0 +1,23 @@
+#공분산, 상관계수
+
+공분산: df.corr()
+
+피어슨 상관계수(numerical data): stats.corrcoef()
+스피어만 상관계수(categorical data): stats.spearmanr()
+
+벡터의 투영(사영 벡터)
+stats.linalg.orth()
+
+#Span, Rank, basis
+Span은 어떤 벡터공간이 모든 부분집합의 교집합일 때 그 벡터공간의 벡터의 집합을 의미하며, 주로 어떤 차원을 span한다고 쓰는 것 같다.
+Basis는 
+
+np.linalg.matrix_rank(array)
+
+행 방향으로 쌓기
+lmn = np.row_stack((l,m,n))
+
+
+#해결 못 한 문제
+for loop에서 중간에 값을 고정시키고 싶은데 어떻게 해야할지 모르겠다
+하나의 함수를 정의하는데 중간에 for loop 끝나고 나온 값을 다음 for loop에 넣고 싶은데..
