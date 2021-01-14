@@ -1,0 +1,49 @@
+#Eigen vector, Eigen value
+np.linalg.eig(array)
+
+#PCA
+from numpy import array
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+
+scaler = StandardScaler()                                      #정규화시키기
+Z = scaler.fit_transform(X)
+print("\n Standardized Data: \n", Z)
+
+pca = PCA(2)                                                   #pca component 2개
+pca.fit(Z)
+
+print("\n Eigenvectors: \n", pca.components_)
+print("\n Eigenvalues: \n",pca.explained_variance_)
+print("\n explained variance ratio: \n",sum(pca.explained_variance_ratio_))    
+
+principalComponents = pca.fit_transform(Z)                      #Z를 projection함? #PC2
+principalDf = pd.DataFrame(data=principalComponents, columns = ['principal component1', 'principal component2' ]) #위의 PC 개수에 따라 달라져야함
+
+
+#One hot encoding
+
+from numpy import array
+from numpy import argmax
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
+
+# define example
+data = 'Adelie', 'Chinstrap','Gentoo'                            #column이어도 됨
+values = array(data)
+print(values)
+
+# integer encode
+label_encoder = LabelEncoder()
+integer_encoded = label_encoder.fit_transform(values)
+print(integer_encoded)
+
+# binary encode
+onehot_encoder = OneHotEncoder(sparse=False)
+integer_encoded = integer_encoded.reshape(len(integer_encoded), 1)
+onehot_encoded = onehot_encoder.fit_transform(integer_encoded)
+print(onehot_encoded)
+
+#기존 데이터프레임에 더미변수로 붙이기
+df = pd.get_dummies(data = df, columns = ['species'], prefix = 'species')
+df
