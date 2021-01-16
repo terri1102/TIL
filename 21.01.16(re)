@@ -1,0 +1,57 @@
+a = 'Let\'s replace spaces in this line with other characters.'
+a_replaced = a.replace(" ", '!@!')
+print("output #32 (with !@!): {0:s}".format(a_replaced))
+a_replace = a.replace(" ", ',')
+print("output #33 (with commas): {0:s}".format(a_replace))
+
+#format 매서드
+"string sentence {0:s}".format(a_replace) 
+#이런식으로 중간 괄호 뒤에 붙어서 쓰인다.
+
+#re 모듈: 정규표현식 같은 특정한 패턴을 찾아주는 모듈
+from math import exp, log, sqrt
+import re
+
+#문자열 내에 등장하는 패턴의 횟수 세기
+string = "The quick brown fox jumps over the lazy dog."
+string_list = string.split()
+pattern = re.compile(r"The", re.I) #r: 원시 문자열(raw string)을 나타냄 
+                                   #re.compile: 텍스트 기반의 패턴을 정규표현식으로 컴파일
+                                   #re.I : 대소문자 구분없이 찾기
+count = 0
+for word in string_list:
+  if pattern.search(word):         #re.search: 각 단어에 대해 앞에서 설정한 정규표현식을 비교
+    count = count + 1
+print("Output #38: {0:d}".format(count))
+
+#일치하는 문자열 출력
+
+string = "The quick brown fox jumps over the lazy dog."
+string_list = string.split()
+pattern = re.compile(r"(?P<match_word>The)", re.I) #(?P<그룹명>): 일치한 문자열을 나중에 프로그램에서 다시 사용할 수 있게 해주는 변수명
+print("output #39:")
+for word in string_list:
+  if pattern.search(word):
+    print("{:s}".format(pattern.search(word).group('match_word')))
+    
+#문자열 내 "a"를 "the"로 대체하기
+string = "The quick brown fox jumps over the lazy dog."
+string_to_find = r"The"
+pattern = re.compile(string_to_find, re.I)
+print("Output #40: {0:s}".format(pattern.sub("a", string))) #re.sub함수로 교체
+
+#특정 문자열 뒤의 글자 찾기
+import re
+m = re.search('(?<=abcd)ef', 'abcdefdfdfdef dfd')
+m.group(0)
+
+#날짜
+import re
+from datetime import date, time, datetime, timedelta
+today1 = date.today()
+today1
+print("{0!s}".format(today))
+"{0!s}".format(today.year)
+
+#date 객체를 특정 형식의 문자열로 만들기
+" {0!s}".format(today.strftime('%m/%d/%Y'))
