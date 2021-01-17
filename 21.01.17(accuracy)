@@ -5,3 +5,7 @@ from sklearn.metrics import accuracy_score
 y_pred = [0, 2, 1, 3]
 y_true = [0, 1, 2, 3]
 accuracy_score(y_true, y_pred)
+
+Accurancy(정확도): TP+TN/TP+TN+FP+FN 
+precision(정밀도) 검출한 것의 정확도: TP/TP+FP 
+Recall(재현율) 검출율: TP/TP+FN
