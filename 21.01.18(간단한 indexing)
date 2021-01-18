@@ -1,0 +1,9 @@
+# 결측치 처리
+df.info() #non-null object의 개수 정리해서 column별로 알려줌
+
+df.isnall().sum() #결측치의 개수를 column별로 알려줌
+
+df.fillna(0) #결측치를 0으로 채워줌
+
+#
+subset = df.loc[df['참조column'].isin(['A'])] #참조 column 안에 있는 A 값들어간 row만 subset으로 만듦
