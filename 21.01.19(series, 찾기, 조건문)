@@ -1,0 +1,3 @@
+df.NA_Sales = df.NA_Sales.apply(lambda x: 0.001*float(x[:-1]) if 'K' in x else x).astype('string')
+#series는 str로 바꿀 때 'string'이라고 다 써줘야 함
+#float가 함수로 잘 안 만들어질 때 lambda로 하면 되는 듯
