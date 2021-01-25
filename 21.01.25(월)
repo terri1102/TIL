@@ -1,0 +1,15 @@
+말도 안 되지만 동료 평가하느라고 기가 다 빠졌어요...
+
+## word cloud
+from wordcloud import WordCloud, STOPWORDS as stc
+import matplotlib.pyplot as plt
+ 
+wordcloud = WordCloud(font_path='font/NanumGothic.ttf', background_color='white').generate(text)
+
+plt.figure(figsize=(22,22)) #이미지 사이즈 지정
+plt.imshow(wordcloud, interpolation='lanczos') #이미지의 부드럽기 정도
+plt.axis('off') #x y 축 숫자 제거
+plt.show() 
+plt.savefig()
+
+출처: https://khann.tistory.com/60 [khann's IT와 경제 블로그]
