@@ -1,0 +1,21 @@
+#마스크 씌운 히트맵
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from sklearn.preprocessing import normalize
+
+#a = normalize(a)
+mask = np.zeros_like(a.corr(), dtype=np.bool) 
+mask[np.triu_indices_from(mask)] = True 
+
+fig = plt.figure(figsize=(20,20))
+chart = sns.heatmap(a.corr(), mask=mask,square=True,cmap="BuGn", annot=True)
+
+
+
+#f, ax = plt.subplots(figsize=(16, 12))
+plt.title('Pearson Correlation Matrix',fontsize=25)
+
+#adjusted r2
+def adjustedR2(r2,n,k):
+    return r2-(k-1)/(n-k)*(1-r2)
