@@ -1,0 +1,15 @@
+from sklearn.linear_model import RidgeCV 
+from sklearn.linear_model import Ridge
+from sklearn.metrics import r2_score, mean_absolute_error
+
+model = Ridge(alpha=alpha, normalize=True)  
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+#MAE for test
+mae = mean_absolute_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+    
+print(f'Test MAE: ${mae:,.0f}')
+print(f'Test R2: {r2:,.3f}')
+    
