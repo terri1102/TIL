@@ -1,0 +1,31 @@
+#train_test_split
+#validation set도 나눠주는게 좋음
+
+from sklearn.model_selection import train_test_split
+train, test = train_test_split(df, train_size=0.8, test_size=0.2, random_state=2) 
+print("train shape: ", train.shape)
+print("test shape: ", test.shape)
+
+from sklearn.model_selection import train_test_split
+train, val = train_test_split(train, train_size=0.8, test_size=0.2, random_state=2) 
+print("train shape: ", train.shape)
+print("val shape: ", val.shape)
+
+#logistic regression
+from sklearn.linear_model import LogisticRegression
+
+logistic = LogisticRegression()
+logistic.fit(X_train, y_train)
+
+logistic.score(X_train, y_train)
+
+#scaler
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train_encoded)
+X_val_scaled = scaler.transform(X_val_encoded)
+
+#accuracy score
+y_pred = model.predict(X_train_scaled)
+accuracy_score(y_train, y_pred)
