@@ -13,6 +13,7 @@ pio.show(fig)
 
 ---------
 choropleth 실패한 코드..
+https://datascience.stackexchange.com/questions/9616/how-to-create-us-state-heatmap
 
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
