@@ -1,0 +1,102 @@
+#dict 형식으로 fig 정의했을 때 fig.show()하면 안 되고 pio를 import 해와야 함
+
+fig = dict({
+    "data": [{"type": "bar",
+              "x": [1, 2, 3],
+              "y": [1, 3, 2]}],
+    "layout": {"title": {"text": "A Figure Specified By Python Dictionary"}}
+})
+
+# To display the figure defined by this dict, use the low-level plotly.io.show function
+import plotly.io as pio
+pio.show(fig)
+
+---------
+choropleth 실패한 코드..
+
+import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+
+scl = [[0.0, 'rgb(242,240,247)'],[0.2, 'rgb(218,218,235)'],[0.4, 'rgb(188,189,220)'],\
+            [0.6, 'rgb(158,154,200)'],[0.8, 'rgb(117,107,177)'],[1.0, 'rgb(84,39,143)']]
+
+#statem['text'] = statem['state'] + '<br>' +\
+ #   'Beef '+statem['beef']+' Dairy '+statem['dairy']+'<br>'+\
+  #  'Fruits '+statem['total fruits']+' Veggies ' + statem['total veggies']+'<br>'+\
+   # 'Wheat '+statem['wheat']+' Corn '+statem['corn']
+
+data = [ dict(
+        type='choropleth',
+        colorscale = scl,
+        autocolorscale = False,
+        locations = statem['state'],
+        z = statem['vacc_h1n1_f'].astype(float),
+        locationmode = 'USA-states',
+        marker = dict(
+            line = dict (
+                color = 'rgb(255,255,255)',
+                width = 2
+            )
+        ),
+        colorbar = dict(
+            title = "Number of vaccinated"
+        )
+    ) ]
+
+layout = dict(
+        title = 'vacc by states',
+        geo = dict(
+            scope='usa',
+            projection=dict( type='albers usa' ),
+            showlakes = True,
+            lakecolor = 'rgb(255, 255, 255)',
+        ),
+    )
+
+fig = dict( data=data, layout=layout )
+
+import plotly.io as pio
+
+pio.show(fig)
+#url = py.plot( fig, filename='d3-cloropleth-map' )
+
+---------------
+confusion matrix로 히트맵 그리기
+
+def plot_confusion_matrix(cm, target_names=None, cmap=None, normalize=True, labels=True, title='Confusion matrix'):
+    accuracy = np.trace(cm) / float(np.sum(cm))
+    misclass = 1 - accuracy
+
+    if cmap is None:
+        cmap = plt.get_cmap('Blues')
+
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        
+    plt.figure(figsize=(8, 6))
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+
+    thresh = cm.max() / 1.5 if normalize else cm.max() / 2
+    
+    if target_names is not None:
+        tick_marks = np.arange(len(target_names))
+        plt.xticks(tick_marks, target_names)
+        plt.yticks(tick_marks, target_names)
+    
+    if labels:
+        for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+            if normalize:
+                plt.text(j, i, "{:0.4f}".format(cm[i, j]),
+                         horizontalalignment="center",
+                         color="white" if cm[i, j] > thresh else "black")
+            else:
+                plt.text(j, i, "{:,}".format(cm[i, j]),
+                         horizontalalignment="center",
+                         color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label\naccuracy={:0.4f}; misclass={:0.4f}'.format(accuracy, misclass))
+    plt.show()
