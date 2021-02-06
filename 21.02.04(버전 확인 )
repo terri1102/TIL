@@ -1,0 +1,7 @@
+import pandas as pd
+pd.__version__
+print('Pandas : %s'%(pd.__version__))
+print('Numpy : %s'%(np.__version__))
+print('Scikit-Learn : %s'%(sklearn.__version__))
+
+!python --version
