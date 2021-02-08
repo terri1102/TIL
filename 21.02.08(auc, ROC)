@@ -1,0 +1,27 @@
+from sklearn.metrics import roc_curve
+
+# roc_curve(타겟값, prob of 1)
+fpr, tpr, thresholds = roc_curve(y_val, y_pred_proba)
+
+roc = pd.DataFrame({
+    'FPR(Fall-out)': fpr, 
+    'TPRate(Recall)': tpr, 
+    'Threshold': thresholds
+})
+roc
+
+plt.scatter(fpr, tpr)
+plt.title('ROC curve')
+plt.xlabel('FPR(Fall-out)')
+plt.ylabel('TPR(Recall)');
+
+threshold
+# threshold 최대값의 인덱스, np.argmax()
+optimal_idx = np.argmax(tpr - fpr)         #가장 차이가 큰 지점을 찾으면 최적화된  threshold가 나옴
+optimal_threshold = thresholds[optimal_idx]
+
+print('idx:', optimal_idx, ', threshold:', optimal_threshold)
+
+from sklearn.metrics import roc_auc_score
+auc_score = roc_auc_score(y_val, y_pred_proba)
+auc_score
