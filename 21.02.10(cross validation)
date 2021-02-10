@@ -1,0 +1,39 @@
+교차 검증은 하이퍼 파라미터를 튜닝하거나 cross_val_score로 모델들의 점수를 비교할 때 사용한다.
+
+오늘 배운 거는 하이퍼 파라미터 튜닝할 때 썼다.
+[RandomSearchCV]
+from sklearn.model_selection import RandomizedSearchCV
+from scipy.stats import randint, uniform
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+
+pipe = make_pipeline(
+    OrdinalEncoder(), 
+    SimpleImputer(), 
+    RandomForestClassifier(random_state=2)
+)
+
+dists = {
+    #'simpleimputer__strategy': ['mean', 'median'], 
+    'randomforestclassifier__n_estimators': randint(300, 500), 
+    'randomforestclassifier__max_depth': [8, 10, None], 
+    'randomforestclassifier__max_features': uniform(0, 1), # max_features
+    'randomforestclassifier__min_samples_split' : randint(1, 50), # 노드 분할에 사용할 최소한의 샘플 데이터 수
+    'randomforestclassifier__min_samples_leaf' : randint(1, 100)
+   # 'randomforestClassifier__class_weight' : [{0: 1, 1: 3}, ],
+    
+}
+
+clf = RandomizedSearchCV(
+    pipe, 
+    param_distributions=dists, 
+    n_iter=5, 
+    cv=3, 
+    scoring= 'f1',  
+    verbose=1,
+    refit=True,
+    n_jobs=-1,
+    random_state =2
+)
+
+clf.fit(X_train2, y_train2);
