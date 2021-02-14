@@ -40,3 +40,5 @@ coefs = model.named_steps["ridge"].coef_                 #ridge 단계의 steps-
 print(f'Number of Features: {len(coefs)}')
 
 #number of features: 1330개->릿지를 써서 적당히 하자...빨리 모델 만들고, 굳이 어떤 feature인지 알고싶진 않을 때
+
+lasso
