@@ -1,0 +1,12 @@
+rolling window 계산(롤링 윈도우)
+슬라이딩 윈도우랑 비슷한 개념으로 쓰는 것 같다. 슬라이딩 윈도우는 주로 네트워크 관련된 용어로 쓰이고
+롤링 윈도우는 검색하면 이동평균 얘기만 나옴...
+롤링 윈도우: 샘플들을 윈도우(windows)로 불리는 겹치지 않는 지역으로 나누고 각 윈도우에 있는 값을 연산한다. 
+주로 시계열, 연속된 자료에서 많이 사용하는 듯
+df.rolling(window, min_periods=None, center=False, win_type=None, on=None, axis=0, closed=None).mean() #이런식으로 마지막에 연산 매소드를 붙임
+
+shift
+한 열의 모든 값을 행이동시킨다.
+df['copy'].shift(periods=-1, fill_value=0) 
+#period가 -1이면 행을 위로 한 칸 이동시키고, period가 2면 행을 아래로 두 칸 이동시킨다. 
+이동해서 생기는 nan값은 fill_value로 처리한다.
