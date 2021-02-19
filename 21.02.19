@@ -1,0 +1,2 @@
+한 특성이 여러 특성을 담고 있을 때 특성 하나하나를 열로 나누기
+basic['None'] = basic['pro'].apply(lambda x: 1 if 'None' in x else 0)
