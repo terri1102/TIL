@@ -8,3 +8,15 @@ basic['None'] = basic['pro'].apply(lambda x: 1 if 'None' in x else 0)
 훈련 데이터와 테스트 데이터를 랜덤하게 나누면 r2 score는 0.99나옴...
 
 어떻게 해야하지?
+
+#모델2
+results = pd.DataFrame(clf.cv_results_)
+params_2nd_best = results.loc[1, 'params']
+pipe2 = clf.best_estimator_.set_params(**params_2nd_best)
+pipe2.fit(X_train2, y_train2);
+
+y_pred2 = pipe2.predict(X_test2)
+accuracy2 = accuracy_score(y_test2, y_pred2)
+f1score2 = f1_score(y_test2, y_pred2)
+print(f'테스트 세트 정확도: {accuracy2:,.5f}')
+print(f'테스트 세트 f1 score: {f1score2:,.5f}')
