@@ -1,0 +1,7 @@
+#jekyll 오류
+
+
+'did not find expected key while parsing a block mapping' #190
+_config.yml 파일 파싱하는 데 오류났다.
+오류난 라인을 보니까 title이던데..일단 ""로 묶어줬다.
+https://github.com/ruby/psych/issues/190
