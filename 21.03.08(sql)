@@ -1,0 +1,3 @@
+select count(customerID) as The_Num_of_customers_X_Country  
+from customers c 
+group by Country "
