@@ -1,0 +1,2 @@
+가상환경 생성할 폴더 안에 들어가서 가상환경 만들어야 함 <> 아나콘다 가상환겨
+pipenv lock 하면 requirements.txt를 pipfile로 복사하고 lock해줌
