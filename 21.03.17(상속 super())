@@ -1,0 +1,11 @@
+상위 클래스에서 상속 받을 때 상속 안 받는 변수도 일단 적어줘야한다!
+class Parent:
+  def __init__(self, a, b, c):
+    self.a = 'a'
+    self.b = 'b'
+    self.c = 'c'
+    
+class Children(Parent):
+  def __init__(self, a, b, c):
+    super().__init__(self, a, b, c)   #여기서 b를 안 써주면 Children.b는 'c'를 상속받음
+    self.b = 'd'
