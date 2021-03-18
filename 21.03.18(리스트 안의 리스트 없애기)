@@ -1,0 +1,2 @@
+list1 = [[1], [2], ['dd']]
+flat_list = [item for sublist in list1 for item in sublist]
