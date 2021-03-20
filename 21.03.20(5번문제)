@@ -1,0 +1,60 @@
+n, m = list(map(int, input().split()))
+
+watch_list = []
+for i in range(m):
+	watch = list(map(str, input()))
+	watch_list.append(watch)
+
+inverse_list = []
+for row in watch_list:
+  inverse = row[::-1]
+  inverse_list.append(inverse)
+
+
+start = watch_list[0].index('c')
+end = watch_list[-1].index('.')
+
+if start <= end:
+  start = start
+  end = end
+if start > end:
+  start = end
+  end = start
+count = 0
+x_list1 = []
+for row in watch_list:
+  if 'x' in row[start:end+1]:
+    xx1 = row.index('x')
+    x_list1.append(xx1)
+    
+
+start2 = inverse_list[0].index('c')
+end2 = inverse_list[-1].index('.')
+
+if start2 <= end2:
+  start2 = start2
+  end2 = end2
+if start2 > end2:
+  start2 = end2
+  end2 = start2
+x_list = []
+count2 = 0
+for row in inverse_list[1:]:
+  if 'x' in row[start2:end2+1]:
+    xx = row.index('x')
+    x_list.append(xx)
+count = len(set(x_list1))
+count2 = len(set(x_list))
+if count >= count2:
+  result = count2
+
+if count2 >= count:
+  result = count
+
+if count == n:
+  result = -1
+
+print(result)
+
+#테스트케이스만 통과하과 문제는 틀렸음
+#내일 더 생각해봐야지
