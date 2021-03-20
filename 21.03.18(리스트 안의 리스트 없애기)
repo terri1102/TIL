@@ -1,2 +1,8 @@
 list1 = [[1], [2], ['dd']]
 flat_list = [item for sublist in list1 for item in sublist]
+
+
+위에 거 보기 안 좋은 것 같아서 다시 쓰기
+flat_list = [y for x in list for y in x]
+  #1) for x in list 이 먼저 해석되어 x가 됨
+  #2) 
