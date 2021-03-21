@@ -1,0 +1,19 @@
+지난 과제에서 조건문을 잘못 써서 계속 틀렸는데, 이 기회에 좀 정리해보고자 한다.
+if not X:의 의미
+ 1) X는 False
+ 2) X는 0
+ 3) X는 None
+ 4) X는 빈 리스트
+ 5) X는 빈 딕셔너리
+ 6) X는 빈 튜플
+ 7) X는 문자길이 0의 문자열 ""
+ 
+근데 난 if X is None으로 했었을 떄도 틀렸었으니까 
+그 때는 아마 쿼리 객체 생성에서 문제가 있었던 것 같다.
+flask-sqlalchemy는 db.session.query(Table).filter(Table.field == 값).first() 이런 식으로 쓰기
+
+Path Variable과 Query Param의 사용 예
+Resource를 가져온ㄴ Get 메소드는 Path Variable 사용
+정렬(sort)나 필터링 하는 경우 Query Param 사용
+https://ryan-han.com/post/translated/pathvariable_queryparam/
+
