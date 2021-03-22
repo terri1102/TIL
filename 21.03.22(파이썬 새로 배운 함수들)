@@ -1,0 +1,5 @@
+#올림
+from math import ceil
+ceil(4.3) #->5
+
+#list.index() 리스트 내에서의 자리 알려줌
