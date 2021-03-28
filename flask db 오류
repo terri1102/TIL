@@ -1,0 +1,7 @@
+migrate 폴더를 지우고 flask db migrate를 하니 오류가 생겼다
+ERROR [flask_migrate] Error: Can't locate revision identified by '29fcb79ff1b1'
+
+해결
+flask db revision --rev-id 30dc7f6b846a
+flask db migrate
+flask db upgrade
