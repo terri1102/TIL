@@ -1,0 +1,1 @@
+config 파일에 postgresql:// 로 써야 함ㅠㅠㅠ 계속 postgres로 써서 테이블이 안 만들어졌었음
