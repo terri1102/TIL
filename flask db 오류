@@ -5,3 +5,6 @@ ERROR [flask_migrate] Error: Can't locate revision identified by '29fcb79ff1b1'
 flask db revision --rev-id 30dc7f6b846a
 flask db migrate
 flask db upgrade
+
+-css 변경사항 반영 안 될 때
+해결: 인터넷 사용 기록 삭제
