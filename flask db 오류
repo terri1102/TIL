@@ -6,5 +6,14 @@ flask db revision --rev-id 30dc7f6b846a
 flask db migrate
 flask db upgrade
 
+
+오류
+[flask_migrate] Error: Target database is not up to date.해결
+
+해결
+flask db stamp head
+flask migrate
+
+
 -css 변경사항 반영 안 될 때
 해결: 인터넷 사용 기록 삭제
