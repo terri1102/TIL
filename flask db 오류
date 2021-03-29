@@ -17,3 +17,9 @@ flask migrate
 
 -css 변경사항 반영 안 될 때
 해결: 인터넷 사용 기록 삭제
+
+시리즈 일 때
+df.iloc(0,0)
+
+numpy.datetime일 때 판다스 datetime으로
+str(pd.to_datetime(comp_in_range['상장일'].values[0]).date())
