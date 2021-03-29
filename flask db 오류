@@ -23,3 +23,6 @@ df.iloc(0,0)
 
 numpy.datetime일 때 판다스 datetime으로
 str(pd.to_datetime(comp_in_range['상장일'].values[0]).date())
+
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) can't adapt type 'numpy.int64'
+flask sqlalchemy는 numpy.int 안 받음. float로 바꾸면 됨
