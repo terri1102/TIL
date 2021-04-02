@@ -1,0 +1,6 @@
+sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 3, and there are ...
+
+You need to pass in a sequence, but you forgot the comma to make your parameters a tuple:
+
+cursor.execute('INSERT INTO images VALUES(?)', (img,))
+Without the comma, (img) is just a grouped expression, not a tuple, and thus the img string is treated as the input sequence. If that string is 74 characters long, then Python sees that as 74 separate bind values, each one character long.
