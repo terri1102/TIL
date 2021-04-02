@@ -1,0 +1,25 @@
+스크립트 여러번 실행되면 db에 자꾸 데이터 들어가니까 init_db 함수를 만들어 놓는 것이 좋은 듯 
+
+import os
+import sqlite3
+
+DATABASE_PATH = os.path.join(os.getcwd(), 'scrape_data.db')
+
+conn = sqlite3.connect(DATABASE_PATH)
+cur = conn.cursor()
+def init_db(conn=conn):
+
+
+    create_table = """CREATE TABLE Review (
+                        id INTEGER,
+                        review_text TEXT,
+                        review_star FLOAT,
+                        movie_title VARCHAR(128),
+                        PRIMARY KEY (id)
+                        );"""
+
+    drop_table_if_exists = "DROP TABLE IF EXISTS Review;"
+    cur = conn.cursor()
+    cur.execute(drop_table_if_exists)
+    cur.execute(create_table)
+    cur.close()
