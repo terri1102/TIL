@@ -36,3 +36,5 @@ with open(CSV_FILEPATH,'r') as f:
             Parents_Children_Aboard=row['Parents/Children Aboard'], Fare=row['Fare'])
         session.add(query1)
     session.commit()
+    
+   # https://velog.io/@dmstj907/Python%EC%9E%90%EB%8F%99%ED%99%94%EC%B2%98%EB%A6%AC-CSV%ED%8C%8C%EC%9D%BC-%EC%9D%BD%EA%B3%A0%EC%93%B0%EA%B8%B0
