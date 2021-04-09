@@ -1,0 +1,1 @@
+y_test = np.where(y_test==2,0, y_test)
