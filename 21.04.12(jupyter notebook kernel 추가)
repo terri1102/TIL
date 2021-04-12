@@ -1,0 +1,6 @@
+1. 아나콘다로 가상환경 설치 & activate
+2. 가상환경에 패키지 설치
+conda install --force-reinstall -y --name P41_NLP -c conda-forge --file requirements.txt
+3. jupyter lab에서 커널 설치할 수 있게 설정
+python -m ipykernel install --user --name P41_NLP --display-name P41_NLP
+4. jupyter notebook 실행 후 파일 열기->커널 선택
