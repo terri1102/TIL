@@ -1,3 +1,26 @@
 1. files 이용해서 zip 파일을 올린다.
 2. !unzip 한다
-3. 이를 하나로 묶는다
+3.
+import os 
+
+def gather_data(filefolder):
+    """ 폴더 내 텍스트 파일을 각각 리스트 요소에 저장하는 함수
+    Args:
+        filefolder (str): .txt 파일이 존재하는 경로
+    Returns:
+        문서를 요소로하는 리스트
+    """
+    
+    data = []
+    files = os.listdir(filefolder)
+    for article in files: 
+        path = os.path.join(filefolder, article)
+        # txt로 끝나는 파일만 읽습니다
+        if  path[-3:] == 'txt':
+            # rb:Read the file in Binary mode
+            with open(path, 'rb') as f:
+                data.append(f.read())
+    
+    return data
+    
+  4.data = gather_data('./data')
