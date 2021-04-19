@@ -23,3 +23,35 @@ def get_images(filepath):
       x_data[i] = img
   return x_data
   ```
+zipfile 부터 불러오기
+```python
+import zipfile  # unziping 
+import glob  # finding image paths
+import numpy as np  # creating numpy arrays
+from skimage.io import imread  # reading images
+from skimage.transform import resize  # resizing images
+
+# 1. Unzip images
+'''
+path = 'your zip file path'
+with zipfile.ZipFile(path, 'r') as zip_ref:
+    zip_ref.extractall('path for extracted images')
+'''
+# 2. Obtain paths of images (.png used for example)
+
+img_list = sorted(glob.glob('mountainForest/train/forest/*.jpg'))
+
+# 3. Read images & convert to numpy arrays
+## create placeholding numpy arrays
+IMG_SIZE = 256 #(image resolution of 256 x 256 used for example)
+x_data = np.empty((len(img_list), IMG_SIZE, IMG_SIZE, 3), dtype=np.float32) #1은 뭐지?? 일단 rgb니까 3으로 바꿨음
+
+## read and convert to arrays
+for i, img_path in enumerate(img_list):
+    # read image
+    img = imread(img_path)
+    # resize image (1 channel used for example; 1 for gray-scale, 3 for RGB-scale)
+    img = resize(img, output_shape=(IMG_SIZE, IMG_SIZE, 3), preserve_range=True)
+    # save to numpy array
+    x_data[i] = img
+```
