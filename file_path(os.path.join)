@@ -1,3 +1,0 @@
-import os
-test_filepath = os.path.join(os.getcwd(), 'titanic.csv')
-
