@@ -1,0 +1,6 @@
+img = Image.open(BytesIO(response.content)) #원하는 형식으로 바꿔줌
+open_cv_image = np.array(img) 
+open_cv_image = cv2.cvtColor(src=open_cv_image, code=cv2.COLOR_BGR2GRAY)
+
+imgplot = plt.imshow(open_cv_image)
+plt.show()
