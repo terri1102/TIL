@@ -55,3 +55,10 @@ for i, img_path in enumerate(img_list):
     # save to numpy array
     x_data[i] = img
 ```
+
+3. 간단하게 디렉토리로 불러오기
+```python
+file_extension = "*.jpg"
+
+train_forest_ic = io.imread_collection(os.path.join(train_forest_dir, file_extension))
+```
