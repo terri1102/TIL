@@ -1,0 +1,7 @@
+
+
+##heapq 쓰려면 리스트가 필요함!
+##heapq는 pop 등 매서드 쓰려고 불러옴
+
+##hq.heappop(a) 이런식으로 a 리스트를 heappop함
+#heappop하면 루트 노드가 pop됨
