@@ -1,0 +1,8 @@
+
+힙
+```python
+import heapq as hq
+hq.heappop()
+hq.heappush(n, list)
+hq.heappoppush()
+```
