@@ -1,0 +1,13 @@
+list = ['a','b','c']
+
+#combinations : 비복원 추출, 중복 없는 조합
+combinations(list, 2)
+#('a','b'), ('a','c'),('b','c')
+
+#combinations_with_replacement :복원추출, 중복 있는 조합
+#combinations_with_replacement(list, 2)
+#('a', 'a') ('a', 'b') ('a', 'c') ('b', 'b') ('b', 'c') ('c', 'c')
+
+#product
+product(blist, repeat=2) #repeat 빼면 오류남!!!
+#('a', 'a') ('a', 'b') ('a', 'c') ('b', 'a') ('b', 'b') ('b', 'c') ('c', 'a') ('c', 'b') ('c', 'c')
