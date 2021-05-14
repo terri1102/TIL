@@ -1,0 +1,8 @@
+## 제일 간단하게 생각해본거
+```python
+a = ["a","b","c","d","e"]
+b = [0]* len(a)
+for i in range(len(a)):
+    b[i] = a[-i-1]
+print(b)
+```
