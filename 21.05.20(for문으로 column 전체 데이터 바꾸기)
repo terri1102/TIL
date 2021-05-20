@@ -1,0 +1,4 @@
+for idx, text in zip(df.index, df['Review Text']):
+    text = text.lower()
+    text = re.sub(r'[^a-z0-9 ]', '', text)
+    df['Review Text'][idx] = text #여기 idx가 중요함
