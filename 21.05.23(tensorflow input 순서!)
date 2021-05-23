@@ -1,0 +1,3 @@
+tensorflow가 백엔드일 때 채널이 제일 마지막!!
+tensorflow: input_shape=(224,224,3).
+theano: input_shape=(3,224,224) 
