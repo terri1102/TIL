@@ -1,0 +1,2 @@
+items = [1,2,0,3,1,2]
+print(list(dict.fromkeys(items)))
