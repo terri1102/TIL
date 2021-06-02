@@ -1,0 +1,62 @@
+
+
+### sklearn
+
+#### Up-sampling Minority Class
+
+replace = True
+
+```python
+from sklearn.utils import resample
+
+#separate majoirty and minority classes
+df_minority = df[df.balance==0]
+df_majority = df[df.balance==1]
+
+#Upsample minority class
+df_minority_upsampled = resample(df_minority, 
+                                replace = True,
+                                n_samples = len(df_majority),
+                                random_state= 123)
+                               
+                              
+#combine
+df_upsampled = pd.concat([df_majority, df_minority_upsampled])
+df_upsampled.balance.value_counts()
+```
+
+### Down-Sample Majority Class
+
+replace=False
+
+```python
+from sklearn.utils import resample
+
+#separate majoirty and minority classes
+df_minority = df[df.balance==0]
+df_majority = df[df.balance==1]
+
+#Upsample minority class
+df_majority_downsampled = resample(df_majority, 
+                                replace = False,
+                                n_samples = len(df_minority),
+                                random_state= 123)
+                                
+#combine
+df_downsampled = pd.concat([df_majority_downsampled, df_minority])
+df_downsampled.balance.value_counts()                               
+```
+
+### smote 
+
+```python
+pip install -U imbalanced-learn
+X_samp, y_samp = SMOTE(random_state=4).fit_sample(X_imb, y_imb)
+
+plt.subplot(121)
+classification_result2(X_imb, y_imb)
+plt.subplot(122)
+model_samp = classification_result2(X_samp, y_samp)
+```
+
+https://datascienceschool.net/03%20machine%20learning/14.02%20%EB%B9%84%EB%8C%80%EC%B9%AD%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%AC%B8%EC%A0%9C.html
