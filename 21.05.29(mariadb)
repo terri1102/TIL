@@ -1,2 +1,2 @@
-dd
-mysql
+mysql을 써보고 싶어서 mysql 커뮤니티 보다는 기능이 많은 mariadb를 써보려고 했는데,
+지금 프로젝트(분석 및 멀티 프로세싱)에는 postgresql이 더 적절한 것 같다.
