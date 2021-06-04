@@ -1,6 +1,10 @@
 원인: git clone에서 내 레포를 clone한 후에
 다른 레포를 git clone해서 내 레포 안에 깔았음
 
+힌트: You've added another git repository inside your current repository.
+힌트: Clones of the outer repository will not contain the contents of
+힌트: the embedded repository and will not know how to obtain it.
+
 상위 repo에 submodule을 추가
 git submodule add <url> submodule
 
