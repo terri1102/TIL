@@ -1,0 +1,8 @@
+원인: git clone에서 내 레포를 clone한 후에
+다른 레포를 git clone해서 내 레포 안에 깔았음
+
+상위 repo에 submodule을 추가
+git submodule add <url> submodule
+
+상위 repo에 submodule을 제거
+git rm --cached submodule
