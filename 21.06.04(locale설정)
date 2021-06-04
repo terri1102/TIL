@@ -1,0 +1,16 @@
+1. 깔린 locale 확인
+locale
+
+2. 패키지 다운로드
+sudo apt-get install language-pack-ko
+
+3. locale 다운로드
+sudo locale-gen ko_KR.UTF-8
+
+4. 원하는 locale 설정
+sudo dpkg-reconfigure locales
+
+5. 시스템 설정 업데이트
+sudo update-locale LANG=ko_KR.UTF-8 LC_MESSAGES=POSIX
+
+https://beomi.github.io/2017/07/10/Ubuntu-Locale-to-ko_KR/
