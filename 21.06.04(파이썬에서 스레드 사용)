@@ -1,4 +1,5 @@
-파이썬에서 스레드를 사용하려면 threading 모듈의 Thread 클래스를 사용. Thread 클래스는 수행할 함수를 target 인자로 받음. 이 타깃 함수에 전달할 인자들은 args와 kwargs 인자로 지정할 수 있다.
+파이썬에서 스레드를 사용하려면 threading 모듈의 Thread 클래스를 사용. Thread 클래스는 수행할 함수를 target 인자로 받음. 
+이 타깃 함수에 전달할 인자들은 args와 kwargs 인자로 지정할 수 있다.
 args로 가변 개수 인자를 튜플로 전달, kwargs에 키워드 인자들을 딕셔너리 형태로 전달
 
 Thread 클래스의 daemon 인자로 데몬 스레드 연부를 지정할 수 있다. 데몬 스레드는 메인 종료될 때 함께 종료된는 스레드.
