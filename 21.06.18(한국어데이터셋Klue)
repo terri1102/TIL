@@ -3,3 +3,14 @@ KLUE 데이터셋 :https://github.com/huggingface/datasets/blob/master/datasets/
 KLUE 설명: https://github.com/KLUE-benchmark/KLUE
 
 KLUE pretrained model: https://huggingface.co/klue
+
+8 Tasks
+
+* Topic Classification (TC)
+* Sentence Textual Similarity (STS)
+* Natural Language Inference (NLI)
+* Named Entity Recognition (NER)
+* Relation Extraction (RE)
+* (Part-Of-Speech) + Dependency Parsing (DP)
+* Machine Reading Comprehension (MRC)
+* Dialogue State Tracking (DST)
