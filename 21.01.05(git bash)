@@ -6,3 +6,13 @@
 Github branch 삭제
 - Git Bash 창에서
 $ git push origin --delete new1
+
+git config global 설정 정보들
+```bash
+$ git config --global --list
+```
+
+대소문자 구분하기 : 기본 설정은 대소문자 무시함
+```bash
+git config core.ignorecase false
+```
