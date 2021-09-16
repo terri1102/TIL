@@ -1,0 +1,9 @@
+early_stopping = tf.keras.callbacks.EarlyStopping(monitor='val_acc', patience=20)
+save_weights = tf.keras.callbacks.ModelCheckpoint(os.path.join(data_dir, "checkpoint.hdf5"),
+                                                  monitor='val_acc',
+                                                  verbose=1,
+                                                  save_best_only=True,
+                                                  mode="max",
+                                                  save_freq="epoch",
+                                                  save_weights_only=True)
+csv_logger = tf.keras.callbacks.CSVLogger(os.path.join(data_dir, "train_log.csv"))
