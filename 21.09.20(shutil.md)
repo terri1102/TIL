@@ -1,0 +1,2 @@
+import shutil
+shutil.copy(file_from, file_to)
