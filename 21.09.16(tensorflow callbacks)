@@ -7,3 +7,9 @@ save_weights = tf.keras.callbacks.ModelCheckpoint(os.path.join(data_dir, "checkp
                                                   save_freq="epoch",
                                                   save_weights_only=True)
 csv_logger = tf.keras.callbacks.CSVLogger(os.path.join(data_dir, "train_log.csv"))
+
+* tf.keras.layers.Layer vs. tf.keras.Model 차이
+
+비슷한 API를 쓰지만 Model 클래스는 model.fit(), model.predict(), model.evaluate()를 쓸 수 있다.
+
+https://stackoverflow.com/questions/55109696/tensorflow-difference-between-tf-keras-layers-layer-vs-tf-keras-model
