@@ -1,0 +1,7 @@
+1. RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+
+의심가는 원인 1: 인덱스 값에 -100 있어서
+
+이유를 알 수 없는 GPU 에러 : https://brstar96.github.io/shoveling/device_error_summary/
