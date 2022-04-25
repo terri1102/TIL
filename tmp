@@ -1,3 +1,9 @@
+import (
+    "strings"
+    "strconv"
+        "fmt"
+)
+
 func isPrime(num int) bool {
     for i := 2; i <=(int(num/2)); i++ {
         if num % i == 0 {
@@ -6,7 +12,50 @@ func isPrime(num int) bool {
     }
     return true
 }
+
+func permutations(arr []int)[][]int{
+    var helper func([]int, int)
+    res := [][]int{}
+
+    helper = func(arr []int, n int){
+        if n == 1{
+            tmp := make([]int, len(arr))
+            copy(tmp, arr)
+            res = append(res, tmp)
+        } else {
+            for i := 0; i < n; i++{
+                helper(arr, n - 1)
+                if n % 2 == 1{
+                    tmp := arr[i]
+                    arr[i] = arr[n - 1]
+                    arr[n - 1] = tmp
+                } else {
+                    tmp := arr[0]
+                    arr[0] = arr[n - 1]
+                    arr[n - 1] = tmp
+                }
+            }
+        }
+    }
+    helper(arr, len(arr))
+    return res
+}
 func solution(numbers string) int {
-    pool := numbers.
+    // cnt := 0
+    strNum := strings.Split(numbers, "")
+    var pool []string
+    var pool2 []string
+    pool = append(pool, strNum)
+    for i :=0; i<=len(strNum); i++ {
+        pool = append(pool,strNum[i:])
+    }
+    // for _, d := range strNum {
+    //     // a, _:= strconv.Atoi(d)
+    //     pool = append(pool, a)
+    //     // fmt.Println(d)
+    // }
+    
+    perm := permutations(pool)
+    fmt.Println(perm)
     return 0
 }
